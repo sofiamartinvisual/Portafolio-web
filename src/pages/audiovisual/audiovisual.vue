@@ -1,17 +1,87 @@
 <script setup lang="ts">
 import verticalCarousel from '@/components/portfolio/verticalcarousel.vue'
 
-// Proyectos audiovisuales
-const projects = [
+// Proyectos de experimentación y nuevos lenguajes
+const experimentalProjects = [
+  {
+    title: 'Dulces sueños',
+    year: '—',
+    technique: 'Stop motion',
+    image: '/imagines/audiovisual/dulces-suenos.jpg'
+  },
   {
     title: 'Yo, según ellos',
     year: '—',
     technique: 'Stop motion',
     image: '/imagines/audiovisual/yo-segun-ellos.jpg'
+  },
+  {
+    title: 'Sócrates pero en 360º',
+    year: '—',
+    technique: 'Vídeo 360º',
+    image: '/imagines/audiovisual/socrates-360.jpg'
+  },
+  {
+    title: 'Paseo movidito',
+    year: '—',
+    technique: 'Pixilación',
+    image: '/imagines/audiovisual/paseo-movidito.jpg'
+  },
+  {
+    title: 'Más allá de la cima',
+    year: '—',
+    technique: 'Diaporama con dibujos',
+    image: '/imagines/audiovisual/mas-alla-de-la-cima.jpg'
+  },
+  {
+    title: 'RDR Roleplay Trailer de personaje nativo',
+    year: '—',
+    technique: 'Tráiler · Videojuegos',
+    image: '/imagines/audiovisual/rdr-trailer.jpg'
+  },
+  {
+    title: 'Roleplay Conan Exiles Tráiler',
+    year: '—',
+    technique: 'Tráiler · Videojuegos',
+    image: '/imagines/audiovisual/conan-exiles.jpg'
   }
 ]
 
-// Experiencia audiovisual
+// Producción audiovisual
+const productionProjects = [
+  {
+    title: 'Café, Kaffee, Coffee',
+    year: '—',
+    technique: 'Cortometraje',
+    image: '/imagines/audiovisual/cafe-kaffee-coffee.jpg'
+  },
+  {
+    title: 'POR TU BIEN',
+    year: '—',
+    technique: 'Cortometraje universitario',
+    image: '/imagines/audiovisual/por-tu-bien.jpg'
+  },
+  {
+    title: 'Despertar Mortal',
+    year: '—',
+    technique: 'Cortometraje',
+    image: '/imagines/audiovisual/despertar-mortal.jpg'
+  },
+  {
+    title: 'Noticia La Tira Nora Padilla y Sofía Martín',
+    year: '—',
+    technique: 'Cobertura audiovisual',
+    image: '/imagines/audiovisual/noticia-la-tira.jpg'
+  },
+  {
+    title: 'El golpe',
+    year: '—',
+    technique: 'Montaje de clips cinematográficos',
+    image: '/imagines/audiovisual/el-golpe.jpg'
+  }
+]
+
+// Experiencia y proyectos
 const experience = [
   {
     place: 'Fotoeventi Lanzarote',
@@ -80,47 +150,83 @@ const experience = [
     </section>
   <div class="mx-8 md:mx-12 border-t border-white/20"></div>
 
-  <!-- Experiencia y proyectos -->
-    <section class="grid grid-cols-1 lg:grid-cols-[0.8fr_2fr] gap-12 px-8 md:px-12 py-12">
+ <!-- Experiencia -->
 
-      <!-- Experiencia -->
-      <div>
-        <h2 class="text-xs tracking-[0.3em] mb-10">
-          EXPERIENCIA
+<!-- Experiencia y proyectos audiovisuales -->
+<section class="grid grid-cols-1 lg:grid-cols-[0.8fr_2fr] gap-12 px-8 md:px-12 py-12">
+
+  <!-- Columna izquierda: Experiencia -->
+  <div>
+    <h2 class="text-xs tracking-[0.3em] mb-10">
+      EXPERIENCIA LABORAL Y PRÁCTICA
+    </h2>
+
+    <div
+      v-for="item in experience"
+      :key="item.place"
+      class="pb-7 mb-7 border-b border-white/20"
+    >
+      <h3 class="text-lg font-light">
+        {{ item.place }}
+      </h3>
+
+      <p class="text-[10px] tracking-widest text-white/50 mt-2">
+        {{ item.role }}
+      </p>
+
+      <p class="text-[10px] tracking-widest text-white/40 mt-2">
+        {{ item.date }}
+      </p>
+
+      <p class="text-sm leading-6 text-white/65 mt-4">
+        {{ item.description }}
+      </p>
+    </div>
+  </div>
+
+  <!-- Columna derecha: Proyectos -->
+  <div class="space-y-16">
+
+    <!-- 01. Experimentación y nuevos lenguajes -->
+    <div>
+      <div class="mb-8">
+        <h2 class="text-sm tracking-[0.3em] mb-4">
+          01 / EXPERIMENTACIÓN Y NUEVOS LENGUAJES
         </h2>
 
-          <div
-          v-for="(item, index) in experience"
-          :key="item.place"
-          class="pb-7 mb-7 border-b border-white/20"
-        >
-          <h3 class="text-lg font-light">
-            {{ item.place }}
-          </h3>
-
-          <p class="text-[10px] tracking-widest text-white/50 mt-2">
-            {{ item.role }}
-          </p>
-
-          <p class="text-[10px] tracking-widest text-white/40 mt-2">
-            {{ item.date }}
-          </p>
-
-          <p class="text-sm leading-6 text-white/65 mt-4">
-            {{ item.description }}
-          </p>
-        </div>
+        <p class="max-w-2xl text-sm leading-7 text-white/60">
+          Una selección de proyectos que exploran distintas posibilidades
+          del lenguaje audiovisual, desde técnicas de animación como el stop
+          motion y la pixilación hasta propuestas experimentales y piezas
+          vinculadas al entorno digital y los videojuegos.
+        </p>
       </div>
 
- <!-- Carrusel de proyectos -->
-      <div>
-        <h2 class="text-xs tracking-[0.3em] mb-8">
-          PROYECTOS SELECCIONADOS
+      <VerticalCarousel :projects="experimentalProjects" />
+    </div>
+
+    <div class="border-t border-white/20"></div>
+
+    <!-- 02. Producción audiovisual -->
+    <div>
+      <div class="mb-8">
+        <h2 class="text-sm tracking-[0.3em] mb-4">
+          02 / PRODUCCIÓN AUDIOVISUAL
         </h2>
 
-        <VerticalCarousel :projects="projects" />
+        <p class="max-w-2xl text-sm leading-7 text-white/60">
+          Proyectos desarrollados en contextos académicos y colaborativos,
+          centrados en la producción de piezas audiovisuales, la narración
+          cinematográfica, el montaje y la documentación de eventos.
+        </p>
       </div>
 
-    </section>
+      <VerticalCarousel :projects="productionProjects" />
+    </div>
+
+  </div>
+
+</section>
+
    </main>
 </template>

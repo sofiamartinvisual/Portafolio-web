@@ -35,12 +35,21 @@ function previousProject() {
     currentIndex.value = props.projects.length - 1
   }
 }
+  // Cambiamos de proyecto al utilizar la rueda del ratón.
+function handleWheel(event: WheelEvent) {
+  if (event.deltaY > 0) {
+    nextProject()
+  } else if (event.deltaY < 0) {
+    previousProject()
+  }
+}
 </script>
 
 <template>
   <div
     v-if="projects.length > 0"
     class="relative flex flex-col items-center gap-6"
+   @wheel.prevent="handleWheel"
   >
     <!-- Contador -->
     <div class="flex justify-end w-full text-sm text-white/60">
@@ -48,6 +57,10 @@ function previousProject() {
       /
       {{ projects.length.toString().padStart(2, '0') }}
     </div>
+    
+    <!-- Transición entre proyectos -->
+<Transition name="project" mode="out-in">
+  <div :key="currentIndex" class="w-full flex flex-col items-center gap-6">
 
     <!-- Imagen del proyecto -->
     <div class="w-full max-w-4xl">
@@ -58,17 +71,20 @@ function previousProject() {
       />
     </div>
 
-     <!-- Información del proyecto -->
+    <!-- Información del proyecto -->
     <div class="text-center text-white space-y-2">
       <h2 class="text-2xl font-light">
         {{ projects[currentIndex].title }}
       </h2>
 
-        <p class="text-xs tracking-widest text-white/50">
+      <p class="text-xs tracking-widest text-white/50">
         {{ projects[currentIndex].technique }} ·
         {{ projects[currentIndex].year }}
       </p>
     </div>
+
+  </div>
+</Transition>
 
      <!-- Controles -->
     <div class="flex flex-col items-center gap-4 text-white/60">
