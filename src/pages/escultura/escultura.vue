@@ -4,6 +4,13 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 const activeSection = ref('escultura')
 
+function scrollToSection(sectionId: string) {
+  document.getElementById(sectionId)?.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  })
+}
+
 let observer: IntersectionObserver | null = null
 
 onMounted(() => {
@@ -143,22 +150,25 @@ const scenographyProjects = [
 
       <div class="flex items-center gap-8 text-xs tracking-[0.2em]">
 
-        <a
-        href="#escultura"
+        <button
+        type="button"
+        @click="scrollToSection('escultura')"
         :class="activeSection === 'escultura'
-        ? 'text-white border-b border-white pb-2'
-        : 'text-white/40 hover:text-white transition-colors'"        >
-          ESCULTURA
-        </a>
+            ? 'text-white border-b border-white pb-2'
+            : 'text-white/40 hover:text-white transition-colors'"
+>
+            ESCULTURA
+            </button>
 
-        <a
-          href="#escenografia"
-    :class="activeSection === 'escenografia'
-    ? 'text-white border-b border-white pb-2'
-    : 'text-white/40 hover:text-white transition-colors'"
-        >
-          ESCENOGRAFÍA
-        </a>
+            <button
+            type="button"
+            @click="scrollToSection('escenografia')"
+            :class="activeSection === 'escenografia'
+                ? 'text-white border-b border-white pb-2'
+                : 'text-white/40 hover:text-white transition-colors'"
+            >
+            ESCENOGRAFÍA
+            </button>
 
       </div>
     </nav>
