@@ -1,7 +1,8 @@
-
 <script setup lang="ts">
 
 import VerticalCarousel from '@/components/portfolio/verticalcarousel.vue'
+import PortfolioNav from '@/components/portfolio/PortfolioNav.vue'
+
 
 // Proyectos de la categoría Visuales.
 const projects = [
@@ -16,43 +17,28 @@ const projects = [
 </script>
 
 <template>
+ <!-- Contenedor principal -->
+  <main class="min-h-screen bg-black text-white px-7 md:px-12 py-6">
+   
+    <!-- Menú principal -->
+    <PortfolioNav />
 
-          <!-- Contenedor principal -->
-  <main class="min-h-screen bg-black text-white">
+     <!-- Contenido de Visuales -->
+    <section class="py-10">
 
-      <!-- Barra de navegación -->
-    <nav class="flex items-center justify-between px-8 py-6">
-
-         <!-- Volver al inicio -->
-      <a href="#/" class="text-sm hover:opacity-60 transition-opacity">
-        ← Inicio
-      </a>
-    
-            <!-- Nombre del portfolio -->
-      <span class="text-sm tracking-widest">
-        SOFÍA MARTÍN
-      </span>
-
-         <!-- Menú -->
-      <button class="text-sm hover:opacity-60 transition-opacity">
-        MENU
-      </button>
-
-       </nav>
-
-    <!-- Contenido de Visuales -->
-    <section class="px-8 py-10">
-
-      <h1 class="text-2xl font-light tracking-widest">
+<h1 class="text-4xl md:text-6xl font-extralight tracking-widest">
         VISUALES
-        <VerticalCarousel :projects="projects" />
       </h1>
 
-        </section>
+      <!-- Carrusel de proyectos -->
+      <div class="mt-12">
+        <VerticalCarousel :projects="projects" />
+      </div>
+
+    </section>
 
   </main>
 </template>
-
 
 <style scoped>
 

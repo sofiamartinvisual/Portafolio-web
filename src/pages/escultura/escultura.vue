@@ -1,5 +1,7 @@
+
 <script setup lang="ts">
 import HorizontalCarousel from '@/components/portfolio/horizontalcarousel.vue'
+import PortfolioNav from '@/components/portfolio/PortfolioNav.vue'
 import { ref, onMounted, onUnmounted } from 'vue'
 
 const activeSection = ref('escultura')
@@ -47,9 +49,9 @@ const sculptureProjects = [
       '/imagines/escultura/busto-figurativo-02.jpg',
       '/imagines/escultura/busto-figurativo-03.jpg',
       '/imagines/escultura/busto-figurativo-04.jpg'
-      ]
+    ]
   },
- {
+  {
     title: 'Busto de Góngora',
     technique: 'Modelado en barro · Figura parcial',
     description:
@@ -61,7 +63,7 @@ const sculptureProjects = [
     ]
   },
   {
-     title: 'Construcción modular',
+    title: 'Construcción modular',
     technique: 'Escayola · Silicona · Moldeado y ensamblaje',
     description:
       'Investigación sobre las posibilidades de un módulo geométrico mediante su reproducción, transformación y combinación. El proceso incluyó la elaboración de un molde de silicona y distintas propuestas finales: arquitectónica, escultórica e instalativa.',
@@ -72,7 +74,7 @@ const sculptureProjects = [
     ]
   },
   {
-  title: 'Primera propuesta metálica',
+    title: 'Primera propuesta metálica',
     technique: 'Acero galvanizado · Corte y ensamblaje',
     description:
       'Construcción de una pieza a partir de volúmenes rectangulares que se intersectan y escalan entre sí. El proceso partió de una maqueta de cartón y continuó con el trazado, corte, doblado y ensamblaje de planchas metálicas.',
@@ -123,11 +125,13 @@ const scenographyProjects = [
 ]
 </script>
 
-
 <template>
- <main class="min-h-screen bg-black text-white px-8 md:px-12 py-12">
+  <main class="min-h-screen bg-black text-white px-7 md:px-12 py-6">
 
-    <!-- Cabecera -->
+    <!-- MENÚ PRINCIPAL DE LA WEB -->
+    <PortfolioNav />
+
+    <!-- INTRODUCCIÓN DE ESCULTURA -->
     <header class="mb-12">
       <p class="text-[10px] tracking-[0.3em] text-white/40 mb-4">
         PORTFOLIO / 02
@@ -137,43 +141,41 @@ const scenographyProjects = [
         ESCULTURA
       </h1>
 
-  <p class="max-w-2xl text-sm leading-7 text-white/60 mt-6">
+      <p class="max-w-2xl text-sm leading-7 text-white/60 mt-6">
         Una exploración de la construcción tridimensional a través de
         distintos materiales, técnicas y procesos. Desde la experimentación
         con la materia hasta el diseño y la construcción digital del espacio.
       </p>
     </header>
 
-       <!-- Menú de navegación -->
-    <nav class="sticky top-0 z-20 bg-black/90 backdrop-blur-md
-                border-y border-white/20 py-5 mb-16">
+    <!-- SUBMENÚ DE ESCULTURA -->
+    <nav class="w-full flex items-center gap-8 border-b border-white/20 pb-4 mb-10">
 
-      <div class="flex items-center gap-8 text-xs tracking-[0.2em]">
-
-        <button
+      <button
         type="button"
         @click="scrollToSection('escultura')"
         :class="activeSection === 'escultura'
-            ? 'text-white border-b border-white pb-2'
-            : 'text-white/40 hover:text-white transition-colors'"
->
-            ESCULTURA
-            </button>
+          ? 'text-white border-b border-white pb-2'
+          : 'text-white/40 hover:text-white transition-colors'"
+        class="text-xs tracking-[0.2em]"
+      >
+        ESCULTURA
+      </button>
 
-            <button
-            type="button"
-            @click="scrollToSection('escenografia')"
-            :class="activeSection === 'escenografia'
-                ? 'text-white border-b border-white pb-2'
-                : 'text-white/40 hover:text-white transition-colors'"
-            >
-            ESCENOGRAFÍA
-            </button>
+      <button
+        type="button"
+        @click="scrollToSection('escenografia')"
+        :class="activeSection === 'escenografia'
+          ? 'text-white border-b border-white pb-2'
+          : 'text-white/40 hover:text-white transition-colors'"
+        class="text-xs tracking-[0.2em]"
+      >
+        ESCENOGRAFÍA
+      </button>
 
-      </div>
     </nav>
 
-      <!-- Apartado de escultura -->
+    <!-- APARTADO DE ESCULTURA -->
     <section id="escultura" class="scroll-mt-24 mb-24">
 
       <h2 class="text-sm tracking-[0.25em] mb-4">
@@ -183,53 +185,53 @@ const scenographyProjects = [
       <p class="text-sm leading-7 text-white/50 max-w-2xl">
         Obras tridimensionales y procesos de experimentación material.
       </p>
-    
 
-        <!-- Aquí añadiremos los proyectos -->
-<div class="mt-12 space-y-20">
+      <!-- PROYECTOS DE ESCULTURA -->
+      <div class="mt-12 space-y-20">
 
-  <article
-    v-for="(project, index) in sculptureProjects"
-    :key="project.title"
-    class="space-y-6"
-  >
-    <!-- Información del proyecto -->
-    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-3">
+        <article
+          v-for="(project, index) in sculptureProjects"
+          :key="project.title"
+          class="space-y-6"
+        >
+          <!-- INFORMACIÓN DEL PROYECTO -->
+          <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-3">
 
-      <div>
-        <p class="text-[10px] tracking-[0.2em] text-white/40 mb-3">
-          PROYECTO {{ (index + 1).toString().padStart(2, '0') }}
-        </p>
+            <div>
+              <p class="text-[10px] tracking-[0.2em] text-white/40 mb-3">
+                PROYECTO {{ (index + 1).toString().padStart(2, '0') }}
+              </p>
 
-        <h3 class="text-xl md:text-2xl font-light">
-          {{ project.title }}
-        </h3>
+              <h3 class="text-xl md:text-2xl font-light">
+                {{ project.title }}
+              </h3>
+            </div>
+
+            <p class="text-xs tracking-wider text-white/50">
+              {{ project.technique }}
+            </p>
+
+          </div>
+
+          <!-- CARRUSEL HORIZONTAL -->
+          <HorizontalCarousel
+            :images="project.images"
+            :title="project.title"
+          />
+
+          <!-- DESCRIPCIÓN -->
+          <p class="max-w-3xl text-sm leading-7 text-white/60">
+            {{ project.description }}
+          </p>
+
+          <div class="border-t border-white/20"></div>
+
+        </article>
+
       </div>
+    </section>
 
-      <p class="text-xs tracking-wider text-white/50">
-        {{ project.technique }}
-      </p>
-
-    </div>
-
-    <!-- Carrusel horizontal -->
-    <HorizontalCarousel
-      :images="project.images"
-      :title="project.title"
-    />
-
-    <!-- Descripción -->
-    <p class="max-w-3xl text-sm leading-7 text-white/60">
-      {{ project.description }}
-    </p>
-
-    <div class="border-t border-white/20"></div>
-
-  </article>
-
-</div>
-  </section>
-     <!-- Apartado de escenografía -->
+    <!-- APARTADO DE ESCENOGRAFÍA -->
     <section id="escenografia" class="scroll-mt-24 py-16">
 
       <h2 class="text-sm tracking-[0.25em] mb-4">
@@ -240,50 +242,49 @@ const scenographyProjects = [
         Exploración del espacio y la construcción de entornos digitales
         mediante herramientas de modelado 3D.
       </p>
- <!-- Aquí añadiremos los proyectos -->
-<div class="mt-12 space-y-6">
 
-  <div
-    v-for="project in scenographyProjects"
-    :key="project.title"
-    class="space-y-6"
-  >
-    <div>
-      <p class="text-[10px] tracking-[0.2em] text-white/40 mb-3">
-        PROYECTO 01
-      </p>
+      <!-- PROYECTOS DE ESCENOGRAFÍA -->
+      <div class="mt-12 space-y-6">
 
-      <h3 class="text-xl md:text-2xl font-light">
-        {{ project.title }}
-      </h3>
+        <div
+          v-for="project in scenographyProjects"
+          :key="project.title"
+          class="space-y-6"
+        >
+          <div>
+            <p class="text-[10px] tracking-[0.2em] text-white/40 mb-3">
+              PROYECTO 01
+            </p>
 
-      <p class="text-xs tracking-wider text-white/50 mt-3">
-        {{ project.technique }} · {{ project.year }}
-      </p>
-    </div>
+            <h3 class="text-xl md:text-2xl font-light">
+              {{ project.title }}
+            </h3>
 
-    <HorizontalCarousel
-      :images="project.images"
-      :title="project.title"
-    />
+            <p class="text-xs tracking-wider text-white/50 mt-3">
+              {{ project.technique }} · {{ project.year }}
+            </p>
+          </div>
 
-    <p class="max-w-3xl text-sm leading-7 text-white/60">
-      {{ project.description }}
-    </p>
+          <HorizontalCarousel
+            :images="project.images"
+            :title="project.title"
+          />
 
-    <p class="text-xs text-white/40">
-      {{ project.format }} · Dimensiones variables
-    </p>
-  </div>
+          <p class="max-w-3xl text-sm leading-7 text-white/60">
+            {{ project.description }}
+          </p>
 
-</div>
+          <p class="text-xs text-white/40">
+            {{ project.format }} · Dimensiones variables
+          </p>
+
+        </div>
+
+      </div>
     </section>
 
   </main>
 </template>
 
-
-
 <style scoped>
-
 </style>

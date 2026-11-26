@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import verticalCarousel from '@/components/portfolio/verticalcarousel.vue'
+import PortfolioNav from '@/components/portfolio/PortfolioNav.vue'
 
 // Proyectos de experimentación y nuevos lenguajes
 const experimentalProjects = [
@@ -108,18 +109,10 @@ const experience = [
 <template>
    <main class="min-h-screen bg-black text-white">
 
-      <!-- Navegación superior -->
-    <nav class="flex items-center justify-between px-8 py-6 border-b border-white/15">
-      <a href="#/" class="text-xs tracking-widest hover:opacity-60 transition-opacity">
-        SOFÍA MARTÍN
-      </a>
-
-         <div class="flex items-center gap-8 text-xs tracking-widest">
-        <a href="#/" class="hover:opacity-60 transition-opacity">INICIO</a>
-        <span class="border-b border-white pb-1">PROYECTOS</span>
-        <span class="hover:opacity-60 transition-opacity cursor-pointer">SOBRE MÍ</span>
-      </div>
-    </nav>
+        <!-- MENÚ PRINCIPAL DE LA WEB -->
+    <div class="px-7 md:px-12 pt-5 pb-0">
+      <PortfolioNav />
+    </div>
 
        <!-- Presentación -->
     <section class="grid grid-cols-1 lg:grid-cols-2 gap-10 px-8 md:px-12 py-16">
