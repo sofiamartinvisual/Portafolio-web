@@ -63,13 +63,14 @@ function goToSection(sectionId: string) {
         SOBRE MÍ
       </RouterLink>
 
-      <button
-        type="button"
-        @click="goToSection('contacto')"
-        class="text-white/50 hover:text-white transition-colors"
-      >
-        CONTACTO
-      </button>
+      <RouterLink
+    to="/contacto"
+    :class="route.path === '/contacto'
+        ? 'text-white border-b border-white pb-2'
+        : 'text-white/50 hover:text-white transition-colors'"
+    >
+    CONTACTO
+    </RouterLink>
 
     </div>
   </nav>

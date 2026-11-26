@@ -167,12 +167,12 @@ function goToHomeSection(sectionId: string) {
           SOBRE MÍ
         </RouterLink>
 
-      <button
-        @click="goToHomeSection('contacto')"
+      <RouterLink
+        to="/contacto"
         class="text-white/50 hover:text-white transition-colors"
       >
         CONTACTO
-      </button>
+      </RouterLink>
     </nav>
 
   </main>

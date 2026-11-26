@@ -4,7 +4,7 @@ import Audiovisual from "@/pages/audiovisual/audiovisual.vue";
 import Escultura from "@/pages/escultura/escultura.vue";
 import PinturaDibujo from "@/pages/pintura-dibujo/pintura-dibujo.vue";
 import SobreMi from "@/pages/sobre-mi/sobre-mi.vue";
-
+import Contacto from "@/pages/contacto/contacto.vue";
 import { createRouter, createWebHashHistory } from "vue-router";
 
 export const router = createRouter({
@@ -43,6 +43,11 @@ export const router = createRouter({
     path: '/sobre-mi',
     name: 'sobre-mi',
     component: SobreMi
+    },
+    {
+      path: '/contacto',
+      name: 'contacto',
+      component: Contacto
     },
 
 
