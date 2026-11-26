@@ -114,21 +114,20 @@ function goToHomeSection(sectionId: string) {
 
 <
 <template>
-  <main class="min-h-screen bg-black text-white flex flex-col items-center justify-center gap-16">
-
+<main class="min-h-screen bg-black text-white flex flex-col items-center justify-center gap-16 lg:gap-20 xl:gap-24 py-16">
     <!-- Cabecera -->
     <header class="text-center">
-      <h1 class="text-3xl md:text-5xl tracking-[0.25em] font-light">
+      <h1 class="text-3xl md:text-5xl xl:text-6xl tracking-[0.25em] font-light">
         SOFÍA MARTÍN
       </h1>
 
-      <p class="text-sm md:text-base tracking-[0.3em] text-white/50 mt-4">
+      <p class="text-sm md:text-base xl:text-lg tracking-[0.3em] text-white/50 mt-4">
         ARTISTA TRANSDISCIPLINAR
       </p>
     </header>
 
     <!-- Carrusel de proyectos -->
-    <div class="w-full max-w-5xl px-6 md:px-16">
+    <div class="w-full max-w-6xl xl:max-w-7xl px-6 md:px-16 xl:px-20">
       <Carousel
         class="w-full"
         :opts="{ align: 'center', loop: true }"
@@ -145,7 +144,7 @@ function goToHomeSection(sectionId: string) {
               :class="getCardStyle(index)"
               class="aspect-square border border-white/30 flex items-center justify-center cursor-pointer transition-all duration-500 hover:border-white"
             >
-              <h2 class="text-lg md:text-xl tracking-[0.2em] text-center px-4">
+              <h2 class="text-lg md:text-xl xl:text-2xl tracking-[0.2em] text-center px-4">
                 {{ category.toUpperCase() }}
               </h2>
             </div>
